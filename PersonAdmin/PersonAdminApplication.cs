@@ -14,17 +14,19 @@ namespace PersonAdmin
         {
             Person firstPerson = new Person("Hans", "Muster");
             Person secondPerson = new Person("Max", "Meier");
+            Person thirdPerson = new Person("Anna", "Müller");
             Console.WriteLine("My first C# Program: {0}",
                 Assembly.GetExecutingAssembly().GetName().Version);
             var personRegister = new PersonRegister();
             personRegister[0] = firstPerson;
             personRegister[1] = secondPerson;
+            personRegister[1] = thirdPerson;
             //console.writeline("person: {0} {1}",
             //    personregister[0].firstname,
             //    personregister[0].surname);
-            PrintPersons(personRegister);
             personRegister.Sort(CompareByFirstname);
-            personRegister.Sort(CompareBySurname);
+            PrintPersons(personRegister);            
+            //personRegister.Sort(CompareBySurname);
             Console.ReadKey();        
         }
 
