@@ -17,16 +17,17 @@ namespace PersonAdmin
                 Assembly.GetExecutingAssembly().GetName().Version);
             var personRegister = new PersonRegister();
             personRegister[0] = firstPerson;
-            Console.WriteLine("Person: {0} {1}",
-                personRegister[0].FirstName,
-                personRegister[0].SurName);
+            //console.writeline("person: {0} {1}",
+            //    personregister[0].firstname,
+            //    personregister[0].surname);
+            PrintPersons(personRegister);
             Console.ReadKey();        
         }
 
         private static void PrintPersons(PersonRegister personRegister)
         {
             foreach (var p in personRegister.Persons)
-                Console.WriteLine("{0} {1}", p.Surname, p.Firstname);
+                Console.WriteLine("{0} {1}", p.SurName, p.FirstName);
         }
     }
 }

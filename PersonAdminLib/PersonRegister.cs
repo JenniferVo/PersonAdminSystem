@@ -9,7 +9,10 @@ namespace PersonAdminLib
     public class PersonRegister
     {
         private List<Person> personList;
-        private Persons      
+
+        public List<Person> Persons {get{return this.personList; } }  
+
+        //delegate void sort            
 
         public PersonRegister()
         {
@@ -22,6 +25,6 @@ namespace PersonAdminLib
             set { personList.Add(value); }
         }
 
-
+        
     }
 }
