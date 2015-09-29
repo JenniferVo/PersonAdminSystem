@@ -21,12 +21,24 @@ namespace PersonAdmin
             personRegister[0] = firstPerson;
             personRegister[1] = secondPerson;
             personRegister[1] = thirdPerson;
+
+            //personRegister.LogToConsole(Person...);
+
             //console.writeline("person: {0} {1}",
             //    personregister[0].firstname,
             //    personregister[0].surname);
             personRegister.Sort(CompareByFirstname);
-            PrintPersons(personRegister);            
+            PrintPersons(personRegister);
             //personRegister.Sort(CompareBySurname);
+
+            var personToFind = "Hans";
+
+            var me = personRegister.FindPerson(delegate (Person p)
+            {
+                return p.FirstName == personToFind;
+            });
+
+            Console.WriteLine(me.FirstName);
             Console.ReadKey();        
         }
 
@@ -45,5 +57,16 @@ namespace PersonAdmin
         {
             return p1.SurName.CompareTo(p2.SurName);
         }
+
+        private static void LogToConsole(Person newPerson)
+        {
+            //log to Console
+        }
+
+        private static void LogToFile(Person newPerson)
+        {
+            //log to file
+        }
+
     }
 }

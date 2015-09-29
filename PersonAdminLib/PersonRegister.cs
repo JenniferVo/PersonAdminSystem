@@ -8,8 +8,7 @@ namespace PersonAdminLib
 {
     public class PersonRegister
     {
-        private List<Person> personList;
-        private int count;
+        private List<Person> personList;    
 
         public IList<Person> Persons {get{return this.personList; } }  
         
@@ -31,14 +30,26 @@ namespace PersonAdminLib
 
         public int AddPerson(Person newPerson)
         {
-            personList.Add(newPerson);
-            this.count++;
-            newPersonAdded?.Invoke(newPerson);
-            return this.count;
+            personList.Add(newPerson);           
+            NewPersonAdded?.Invoke(newPerson);
+            return personList.Count;
         }
 
         delegate void PersonAddedHandler(Person newPerson);
 
-        event PersonAddedHandler newPersonAdded;
+        event PersonAddedHandler NewPersonAdded;
+
+        //public Person FindPerson(string surname)
+        //{
+        //    foreach (var p in personList)
+        //        if (p.SurName == surname.Trim())
+        //            return p;
+        //    return null;
+        //}
+
+        public Person FindPerson(Predicate<Person> p)
+        {
+            return personList.Find(predicate);
+        }
     }
 }
