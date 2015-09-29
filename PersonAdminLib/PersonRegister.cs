@@ -10,7 +10,7 @@ namespace PersonAdminLib
     {
         private List<Person> personList;
 
-        public List<Person> Persons {get{return this.personList; } }  
+        public IList<Person> Persons {get{return this.personList; } }  
 
         //delegate void sort            
 
@@ -25,6 +25,9 @@ namespace PersonAdminLib
             set { personList.Add(value); }
         }
 
-        
+        public void Sort(Comparison<Person> comp)
+        {
+            personList.Sort(comp);
+        }
     }
 }
