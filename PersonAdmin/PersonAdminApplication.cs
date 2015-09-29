@@ -20,9 +20,13 @@ namespace PersonAdmin
             Console.WriteLine("Person: {0} {1}",
                 personRegister[0].FirstName,
                 personRegister[0].SurName);
+            Console.ReadKey();        
+        }
 
-
-            Console.ReadKey();
+        private static void PrintPersons(PersonRegister personRegister)
+        {
+            foreach (var p in personRegister.Persons)
+                Console.WriteLine("{0} {1}", p.Surname, p.Firstname);
         }
     }
 }
