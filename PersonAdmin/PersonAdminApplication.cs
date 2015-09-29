@@ -20,6 +20,8 @@ namespace PersonAdmin
             Console.WriteLine("Person: {0} {1}",
                 personRegister[0].FirstName,
                 personRegister[0].SurName);
+
+
             Console.ReadKey();
         }
     }

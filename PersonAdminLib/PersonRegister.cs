@@ -23,5 +23,11 @@ namespace PersonAdminLib
             get { return personList[index]; }
             set { personList.Add(value); }
         }
+
+        private static void PrintPersons(PersonRegister personRegister)
+        {
+            foreach (var p in personRegister.Persons)
+                Console.WriteLine("{0} {1}", p.Surname, p.Firstname);
+        }
     }
 }
