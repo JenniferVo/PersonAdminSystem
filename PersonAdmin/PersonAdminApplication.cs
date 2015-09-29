@@ -13,9 +13,13 @@ namespace PersonAdmin
         static void Main(string[] args)
         {
             Person firstPerson = new Person("Hans", "Muster");
-            Console.WriteLine("My first c# Program: {0}",
+            Console.WriteLine("My first C# Program: {0}",
                 Assembly.GetExecutingAssembly().GetName().Version);
-            Console.WriteLine("{0} {1}", firstPerson.GetFirstName(), firstPerson.GetSurName());
+            var personRegister = new PersonRegister();
+            personRegister[0] = firstPerson;
+            Console.WriteLine("Person: {0} {1}",
+                personRegister[0].FirstName,
+                personRegister[0].SurName);
             Console.ReadKey();
         }
     }
