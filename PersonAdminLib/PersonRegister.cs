@@ -9,11 +9,10 @@ namespace PersonAdminLib
     public class PersonRegister
     {
         private List<Person> personList;
+        private int count;
 
         public IList<Person> Persons {get{return this.personList; } }  
-
-        //delegate void sort            
-
+        
         public PersonRegister()
         {
            this.personList = new List<Person>();
@@ -29,5 +28,17 @@ namespace PersonAdminLib
         {
             personList.Sort(comp);
         }
+
+        public int AddPerson(Person newPerson)
+        {
+            personList.Add(newPerson);
+            this.count++;
+            newPersonAdded?.Invoke(newPerson);
+            return this.count;
+        }
+
+        delegate void PersonAddedHandler(Person newPerson);
+
+        event PersonAddedHandler newPersonAdded;
     }
 }
